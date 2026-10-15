@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "odoo",
+      "runtimeExecutable": "venv/Scripts/python.exe",
+      "runtimeArgs": ["odoo-server/odoo-bin", "-c", "odoo.conf"],
+      "port": 8069
+    }
+  ]
+}

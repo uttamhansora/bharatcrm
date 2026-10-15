@@ -1,0 +1,51 @@
+# /etc/nginx/sites-available/bharatplus  ->  ln -s into sites-enabled, then: certbot --nginx -d crm.bharatplus.co
+upstream odoo       { server 127.0.0.1:8069; }
+upstream odoochat   { server 127.0.0.1:8072; }
+
+server {
+    listen 80;
+    server_name crm.bharatplus.co;            # <- your domain
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name crm.bharatplus.co;            # <- your domain
+    # ssl_certificate / ssl_certificate_key are filled in by certbot
+
+    client_max_body_size 64M;
+    proxy_read_timeout 720s;
+    proxy_connect_timeout 720s;
+    proxy_send_timeout 720s;
+
+    proxy_set_header X-Forwarded-Host $host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Real-IP $remote_addr;
+
+    location /websocket {
+        proxy_pass http://odoochat;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+    }
+    location / {
+        proxy_redirect off;
+        proxy_pass http://odoo;
+    }
+    # cache static assets
+    location ~* /web/static/ {
+        proxy_cache_valid 200 90m;
+        proxy_buffering on;
+        expires 864000;
+        proxy_pass http://odoo;
+    }
+
+    # the database manager must never be reachable from the internet
+    location ~ ^/web/database/(manager|selector|create|duplicate|drop|backup|restore|change_password) {
+        allow 127.0.0.1;
+        deny all;
+    }
+
+    gzip on;
+    gzip_types text/css text/plain text/xml application/xml application/javascript application/json;
+}

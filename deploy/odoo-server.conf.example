@@ -1,0 +1,35 @@
+; /etc/odoo-server.conf  -  BharatPlus CRM production (Odoo 19)
+[options]
+; --- SECURITY (the earlier data loss investigation found these weak) ---------
+admin_passwd = CHANGE-ME-long-random-master-password
+list_db = False
+dbfilter = ^bharatplus$
+; --- database ----------------------------------------------------------------
+db_host = 127.0.0.1
+db_port = 5432
+db_user = odoo
+db_password = CHANGE-ME
+db_name = bharatplus
+db_maxconn = 64
+; --- paths -------------------------------------------------------------------
+addons_path = /odoo/odoo-server/odoo/addons,/odoo/odoo-server/addons,/odoo/custom/addons
+data_dir = /odoo/data
+logfile = /var/log/odoo/odoo-server.log
+log_level = info
+logrotate = True
+; --- web (behind nginx with HTTPS) -------------------------------------------
+http_interface = 127.0.0.1
+http_port = 8069
+gevent_port = 8072
+proxy_mode = True
+; --- performance (2 vCPU example: workers = 2*CPU+1) -------------------------
+workers = 4
+max_cron_threads = 1
+limit_memory_hard = 2684354560
+limit_memory_soft = 2147483648
+limit_time_cpu = 600
+limit_time_real = 1200
+without_demo = True
+; --- Stripe: EITHER set these in Settings > BharatPlus Subscription,
+;     OR export STRIPE_SECRET_KEY / STRIPE_PUBLISHABLE_KEY / STRIPE_WEBHOOK_SECRET / STRIPE_PRICE_ID
+;     as environment variables of the odoo-server service (Environment= in the systemd unit).

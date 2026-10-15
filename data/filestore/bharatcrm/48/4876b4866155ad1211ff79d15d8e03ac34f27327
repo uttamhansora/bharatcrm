@@ -1,0 +1,113 @@
+
+/* /web/static/lib/bootstrap/scss/_functions.scss */
+ 
+
+/* /web/static/lib/bootstrap/scss/_mixins.scss */
+ 
+
+/* /web/static/src/scss/functions.scss */
+ 
+
+/* /web/static/src/scss/mixins_forwardport.scss */
+ 
+
+/* /web/static/src/scss/bs_mixins_overrides.scss */
+ 
+
+/* /web/static/src/scss/utils.scss */
+ 
+
+/* /muk_web_colors/static/src/scss/colors_light.scss */
+ 
+
+/* /muk_web_colors/static/src/scss/colors.scss */
+ 
+
+/* /web/static/src/scss/primary_variables.scss */
+ 
+
+/* /muk_web_theme/static/src/scss/variables.scss */
+ 
+
+/* /muk_web_theme/static/src/scss/colors.scss */
+ 
+
+/* /muk_web_dialog/static/src/scss/variables.scss */
+ 
+
+/* /muk_web_chatter/static/src/scss/variables.scss */
+ 
+
+/* /html_editor/static/src/scss/html_editor.variables.scss */
+ 
+
+/* /web/static/src/core/avatar/avatar.variables.scss */
+ 
+
+/* /web/static/src/core/bottom_sheet/bottom_sheet.variables.scss */
+ 
+
+/* /web/static/src/core/notifications/notification.variables.scss */
+ 
+
+/* /web/static/src/search/control_panel/control_panel.variables.scss */
+ 
+
+/* /web/static/src/search/search_bar/search_bar.variables.scss */
+ 
+
+/* /web/static/src/search/search_panel/search_panel.variables.scss */
+ 
+
+/* /web/static/src/views/fields/statusbar/statusbar_field.variables.scss */
+ 
+
+/* /web/static/src/views/fields/translation_button.variables.scss */
+ 
+
+/* /web/static/src/views/form/form.variables.scss */
+ 
+
+/* /web/static/src/views/kanban/kanban.variables.scss */
+ 
+
+/* /web/static/src/webclient/burger_menu/burger_menu.variables.scss */
+ 
+
+/* /web/static/src/webclient/navbar/navbar.variables.scss */
+ 
+
+/* /mail/static/src/core/common/primary_variables.scss */
+ 
+
+/* /mail/static/src/scss/variables/primary_variables.scss */
+ 
+
+/* /onboarding/static/src/scss/onboarding.variables.scss */
+ 
+
+/* /portal/static/src/scss/primary_variables.scss */
+ 
+
+/* /account/static/src/scss/variables.scss */
+ @keyframes animate-red{0%{color: red;}100%{color: inherit;}}.animate{animation: animate-red 1s ease;}
+
+/* /muk_web_appsbar/static/src/scss/variables.scss */
+ 
+
+/* /web/static/src/scss/secondary_variables.scss */
+ 
+
+/* /html_editor/static/src/scss/secondary_variables.scss */
+ 
+
+/* /web/static/src/scss/pre_variables.scss */
+ 
+
+/* /web/static/lib/bootstrap/scss/_variables.scss */
+ 
+
+/* /web/static/lib/bootstrap/scss/_variables-dark.scss */
+ 
+
+/* /web/static/lib/bootstrap/scss/_maps.scss */
